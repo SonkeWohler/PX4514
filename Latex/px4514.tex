@@ -18,6 +18,7 @@
 \usepackage{framed}
 \usepackage{lipsum}
 \usepackage{cleveref}
+\usepackage{subfiles}
 \usepackage[english]{isodate}
 
 \bibliographystyle{plain}
@@ -29,27 +30,9 @@
 \date{\today}    
 
 \begin{document}
-  \maketitle
-  \thispagestyle{empty}
   
-  \begin{figure}[h!]
-    \centering
-    \includegraphics{otherImages/abdnshield}
-    \caption*{}
-  \end{figure}
+  \subfile{sections/Title}
 
-  \vfill
-  We hereby declare that all work described in this report was carried out by ourselves unless otherwise specified, and that we wrote this report independently with all work and contributions duly acknowledged and cited.
-  \\\\
-  Signed:
-  % \hfill \includegraphics[height=0.78]{otherImages/pawelSignature}
-  \\
-  Pawe{\l} Kaniowski \hfil \today
-  \\\\
-  Signed: 
-  % \hfill \includegraphics[height=0.78]{otherImages/sonkiSignature}
-  \\
-  S\"onke W\"ohler \hfil \today  
   \clearpage
   
   \abstract
@@ -61,17 +44,10 @@
     \endgroup
     \hrulefill
     
-    \section{Introduction}
-      \subsection{Motivation}
-      \subsection{Aims}
-    \section{The Model}
-      \subsection{Design and Development}
-      \subsection{Mathematical Representation}
-      \subsection{Implementation in Mathematica}
-    \section{Evaluating the Model}
-      \subsection{Data Acquisition}
-      \subsection{Results}
-    \section{Conclusion}
+      \subfile{sections/Introduction}
+      \subfile{sections/Model}
+      \subfile{sections/Evaluation}
+      \subfile{sections/Conclusion}
     
     \clearpage
     \section*{Acknowledgements}
