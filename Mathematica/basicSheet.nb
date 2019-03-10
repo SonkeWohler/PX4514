@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12990,        333]
-NotebookOptionsPosition[     10456,        279]
-NotebookOutlinePosition[     10797,        294]
-CellTagsIndexPosition[     10754,        291]
+NotebookDataLength[     13223,        341]
+NotebookOptionsPosition[     10564,        284]
+NotebookOutlinePosition[     10905,        299]
+CellTagsIndexPosition[     10862,        296]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -265,10 +265,15 @@ Cell[BoxData[{
 }, Open  ]]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell["Input", "Section",
  CellChangeTimes->{{3.7611904394925675`*^9, 
   3.7611904401358166`*^9}},ExpressionUUID->"13f07d30-8813-404c-9b0f-\
 2d1b23d72f31"],
+
+Cell["", "Text",ExpressionUUID->"b89ddf55-74f4-42a5-9248-3158eb803ef6"]
+}, Open  ]],
 
 Cell["Plotting", "Section",
  CellChangeTimes->{{3.7611904541179914`*^9, 
@@ -331,8 +336,11 @@ Cell[7841, 203, 2249, 60, 276, "Input",ExpressionUUID->"f94a979b-ceb6-41ba-a9f1-
  InitializationGroup->True]
 }, Open  ]]
 }, Open  ]],
-Cell[10117, 267, 154, 3, 67, "Section",ExpressionUUID->"13f07d30-8813-404c-9b0f-2d1b23d72f31"],
-Cell[10274, 272, 154, 3, 53, "Section",ExpressionUUID->"1f1afcf5-c141-4d9f-be79-d3e10234ff7b"]
+Cell[CellGroupData[{
+Cell[10139, 269, 154, 3, 67, "Section",ExpressionUUID->"13f07d30-8813-404c-9b0f-2d1b23d72f31"],
+Cell[10296, 274, 71, 0, 34, "Text",ExpressionUUID->"b89ddf55-74f4-42a5-9248-3158eb803ef6"]
+}, Open  ]],
+Cell[10382, 277, 154, 3, 67, "Section",ExpressionUUID->"1f1afcf5-c141-4d9f-be79-d3e10234ff7b"]
 }, Open  ]]
 }, Open  ]]
 }
