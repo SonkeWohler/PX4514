@@ -1,7 +1,27 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
   \section{Evaluating the Model}
-    \subsection{Data Aquisition}
+      
+      The model has been assessed by comparing it to data from real matches. \\
+      In this process a small subset of data was dedicated as the "training" set, and used to adjust the model and inform modelling decisions. The remaining data was designated the "test" set that was used upon development completion to evaluate the model.
+      
+      \subsection{Data Aquision}
+        
+        Data was taken from Poland's Men's World Championship \cite{dataGames} by noting down relevant data in excel, based on the defined model. This was done early on in development, as mentioned previously. Specifically the data included the game's score, the coordinates the setter came in contact with the ball, the position the setter decided to set to, the success of the attack and mistakes that were made, among others.
+        \\\\
+        While this was done early in the development, it quickly became clear that a number of parameters, like mistakes in passing and sets from very difficult positions, were beyond the scope of the model. These phenomena involve a fair degree of rather unpredictable factors and would uunnecessarily complicate the model.
+        \\\\
+        Furthermore, from the impressions these games left it was possible to form design decisions, in particular those that fine tuned the model. For example, position 3 stands out by being extremely viable when the setter is close, but always being a bad choice when the setter is even slightly further away. This is different from other positions, that are generally still viable from slightly further away, and has to do with its central position, as the opponent can gang up on this position easily and quickly, unlike in other positions.\\
+        
+      \subsection{Analysis}
+        
+        The single most powerful description of the model's accuracy, quite obviously, is its ability to find the best position to set to. This should eb the position that is scored highest by the model, and ideally also the position the real world setter decides to set to.\\
+        As there is real world data on what the setter would have considered the second best choice at the time, this is largely the only parameter available to asses the accuracy of the model.
+        \\\\
+        For each prediction the model records whether the real setter's choice was scored highest (1), second highest (2) etc. This was dubbed the choice-rank.  
+        \\\\
+        
+        
       All data used for the model was taken from the volleyball games in 2018 FIVB Men’s World Championships as they were available in high quality. Data acquisition consisted of watching the games where Poland played and recorded every decision the setter Fabian Drzyzga made from service reception. His position was recorded whenever he contacted the ball by pausing the game then estimating his coordinates.  For that reason, it was decided to split the court into a grid made out of squared meters as this reflects to which degree of accuracy the setter’s position during contact with the ball could be estimated to. The success rate of each set was also noted by determining if that set resulted with the point scored by the attacker. It is assumed that at this level all sets are good and there is no error in setting the ball. For the same reason the only sets that where counted where if the setter had enough time to get under the ball and use a volley to set rather then a dig. At international level if the setter can get behind the ball and use a volley all attacking option are possible however when using a dig there is a lot less control and precision therefore setter’s choices become drastically limited and very situational. For that reason, these sets where not counted. The points of both teams were also recorded during the set in order to correspond to the pressure factor. This point pressure encourages the setter to play more stable options and therefore the likelihood of more difficult plays in those moments decreases. The last thing that was noted was the position of the setter in the rotation. During service reception players “stack” in order to be in the most optimum receiving position while still following the rotation rules. This means the setter will start in different places meaning he might have to run further or closer to the pass.
     \subsection{Results}
       The model was tested by comparing how it behaves compared to the real data given exactly the same data. One hundred and ten different scenarios where fed into the model from the real data and then the setter’s decisions where compared to the actual ones. The choices are ranked 1st to 7th, 1st meaning that the real decision was predicted to be 1st in the model and 7th if the real decision was predicted to be 7th by the model. In order from 1st choice to the 7th choice out of 110 sets the model’s predictions are (51, 35, 18, 6, 0, 0, 0). In volleyball position 5 and the setter’s position (1 or 2 depending if the setter is backcourt or not) are not possible. Position 5 is a libero and the setter can not set himself. The 7th option is a tip were the setter attacks the ball instead of setting. This means that our model should never have any 7th or 6th ranked choices as it would mean its faulty. As it can be seen only 6 sets where ranked 4th by the model. To determine where this error was coming from, set distribution was represented in the following structure where for each individual position choices where listed from 1st to 7th.
