@@ -6,13 +6,9 @@
     
     \subsection{Fundamental Model Structure}
       
-      The playing field within the model is represented as a coordinate system as shown in \Cref{fig:field}. Over these coordinates each position has a number of properties detailed in \Cref{tab:positions}. These positions are used to refer to the players independent of their coordinates. \\
-      Position 0 refers to the setter independent of their position within the rotation. For example, \(x_{0,current}\) refers to the x coordinate of the current setter position.
+      The playing field within the model is represented as a coordinate system as shown in \Cref{fig:field}. Over these coordinates each position has a number of properties detailed in \Cref{tab:positions}. These positions are used to refer to the players independent of their coordinates, where position 0 refers to the setter independent of their position within the rotation. For example, \(x_{0,current}\) refers to the x coordinate of the current setter position.
       \\\\
-      The model uses this coordinate system to calculate distances, like the \(distance_{setter \to ideal}\) defined in \Cref{equ:distIdeal} i.e. the distance between the setter's current  position and the ideal setter coordinates. \\
-      The ideal setter coordinates (see \Cref{tab:positions} Setter) describe the point from which the setter has the most freedom because they can reach the ball comfortably, making it easy to set, and from this point they can reach almost any position easily. This is the point on the field that the setter always attempts to reach \cite{idealSetter}. \\
-      Being further away from this position reduces the setter's ability to choose a good set, and forces them to set to the few positions they can actually reach.\\
-      This difficulty is represented by \Cref{equ:easeSet}, which describes how easily the setter can set to a position of their choice.
+      The model uses this coordinate system to calculate distances, as in \Cref{equ:distIdeal} i.e. the distance between the setter's current position and the ideal setter coordinates. Tha latter coordinates (see \Cref{tab:positions} Setter) describe the point from which the setter has the most freedom when setting \cite{idealSetter}. Being further away from this position reduces the setter's ability to choose a good set, and forces them to set to the few positions they can reach. Said difficulty is represented by \Cref{equ:easeSet}, which describes how easily the setter can set to a position of their choice.
       
       \begin{subequations}
        \begin{equation}
@@ -49,27 +45,25 @@
       
       \begin{SCfigure}
         \centering
-        \includegraphics[width=0.4\linewidth]{figures/playingFieldGridLabelled}
+        \includegraphics[width=0.35\linewidth]{figures/playingFieldGridLabelled}
         \caption{The coordinate system laid over the playing field. The net is spun at y=0 in the figure. \\
-          This system is primarily used to allow the model to take player positions into account, like the distance that the setter must cover to reach the ball from their position. \\
-          It is also used when noting down real world data to a format that the model can interpret.}
+          This system is primarily used to allow the model to take player positions into account, like the distance that the setter must cover to reach the ball from their position.}
         \label{fig:field}
       \end{SCfigure}
     
       \begin{table}[h!]
         \centering
         \caption{Basic constants defined for each position. \\
-          Each position is assigned a number of constants that help calculate parameters that are in turn used to score the different positions. \\
-          Note that Position 0 either refers to the setter's coordinates or to a "Dump", an attack by the setter without first setting to another player. \\
-          \textbf{Ideal Contact Coordinates} describe where a player or the setter would be if they contact the ball in the ideal position. While the setter may not always be in this position, it is assumed for the model that all other players are in their ideal position when the setter makes their decision. \\
-          \textbf{Ease of Attack} (also bias or \(ease_{attack}\)) is used to tune the model. It was observed for example that positions closer to the net are more likely to be set to, as they are easier to attack from successfully. \\
-          \textbf{Validity} Describes when the setter is allowed to set to a position. For example, position 5 is occupied by the Libero, a player that only defends and never attacks. 
+          Note that Position 0 refers to the setter independent of their position within the rotation. \\
+          \textbf{Ideal Contact Coordinates} describe where a player contacts the ball if set to by the setter, or the ideal position for the setter to set from. \\
+          \textbf{Ease of Attack} (also bias or \(ease_{attack}\)) is used to tune the model with bias for specific positions. \\
+          \textbf{Validity} Describes whether the setter is allowed to set to a position. 
         }
         \small
         \begin{tabular}{ c | c c c }
           \hline
           Position  & Ideal Contact Coordinates & Ease of Attack & Validity \\ \hline \hline
-          Setter/Dump (0) &  8,1 & 10\% & setter y=1 \\
+          Setter (0) &  8,1 & 10\% & setter y=1 \\
           1 & 10,3 & 50\% & setter is front court \\
           2 & 11,1 & 90\% & setter is back court \\
           3 & 7,1 & 70\% &  always \\
