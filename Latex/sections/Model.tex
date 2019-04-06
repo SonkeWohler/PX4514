@@ -24,20 +24,64 @@
         \caption{Basic constants defined for each position. \\
           Each position is assigned a number of constants that help calculate parameters that are in turn used to score the different positions. \\
           Note that Position 0 either refers to the setter's coordinates or to a "Dump", an attack by the setter without first setting to another player. \\
-          Starting Coordinates refers to the coordinates that the setter would start from when in this position, which informs how far they have to run to reach the ball and hence how difficult the set is to perform. \\
-          Ideal Contact Coordinates describe where a player or the setter would be if they contact the ball in the ideal position. While the setter may not always be in this position, it is assumed for the model that all other players are in their ideal position when the setter makes their decision. \\
-          Bias Difficulty is used to tune the model. It was observed for example that positions closer to the net are more likely to be set to, as they are easier to attack from successfully.}
+          \textbf{Ideal Contact Coordinates} describe where a player or the setter would be if they contact the ball in the ideal position. While the setter may not always be in this position, it is assumed for the model that all other players are in their ideal position when the setter makes their decision. \\
+          \textbf{Ease of Attack} (also bias or \(ease_{attack}\)) is used to tune the model. It was observed for example that positions closer to the net are more likely to be set to, as they are easier to attack from successfully. \\
+          \textbf{Validity} Describes when the setter is allowed to set to a position. For example, position 5 is occupied by the Libero, a player that only defends and never attacks. 
+          }
         \begin{tabular}{ c | c c c }
           \hline
-          Position & Starting Coordinates & Ideal Contact Coordinates & Bias Difficulty \\ \hline \hline
-          Setter/Dump (0) &  invalid & 8,1 & 90\% \\
-          1 & 11,6 & 10,3 & 0\% \\
-          2 & 9,1 & 11,1 & 10\% \\
-          3 & 9,1 & 7,1 & 30\% \\
-          4 & 4,2 & 3,1 & 10\% \\
-          5 & 4,7 & invalid & invalid \\
-          6 & 8,2 & 7,3 & 60\% \\
+          Position  & Ideal Contact Coordinates & Ease of Attack & Validity \\ \hline \hline
+          Setter/Dump (0) &  8,1 & 10\% & setter y=1 \\
+          1 & 10,3 & 50\% & setter is front court \\
+          2 & 11,1 & 90\% & setter is back court \\
+          3 & 7,1 & 70\% &  always \\
+          4 & 3,1 & 90\% & always \\
+          5 & invalid & invalid & never\\
+          6 & 7,3 & 40\% & always \\
           \hline
         \end{tabular}
       \end{table}
+      Most terms in the model are scaled to a fraction to ensure they do not outweigh other factors.
+      \\\\
+      We make use of a pressure factor which mostly describes how far ahead or behind the setter's team is in terms of points.
+      
+      \begin{subequations}
+        \begin{equation}
+          points_{Factor}=(points_{their} - points_{own})\frac{points_{higher}}{25} 
+        \end{equation}
+        \begin{equation}
+          pressure= max( point_{Factor}, 0) + 1      
+        \end{equation}
+      \end{subequations}
+      
+      \begin{subequations}
+        \begin{equation}
+          distance_{max} = 8 \sqrt{2}
+        \end{equation}
+        \begin{equation}
+          distance_{setter \to Ideal} = \sqrt{|x_{0,current} - x_{0,ideal}|^2 + 
+            |y_{0,current} - y_{0,ideal}|^2}
+        \end{equation}
+        \begin{equation}
+          ease_{Setting} = 1 - \frac{distance_{setter \to Ideal}}{distance_{max}}
+        \end{equation}
+      \end{subequations}
+    
+      \begin{subequations}
+        \begin{equation}
+          valid_{(p)}=\left\{  
+            \begin{array}{lr} 
+              1 : \text{position \emph{p} is valid} \\
+              0 : \text{otherwise}
+            \end{array}
+          \right.
+        \end{equation}
+        \begin{equation}
+          setScore_{(p)} = 1 - \frac{\sqrt{|x_{0,current} - x_{p,ideal}|^2 + |y_{0,current} - y_{p,ideal}|^2}}{distance_{max}}
+        \end{equation}
+        \begin{equation}
+          score_{(p)} =  valid_{(p)} (setScore_{(p)} + pressure * ease_{Setting} * ease_{attack})
+        \end{equation}
+      \end{subequations}
+      
 \end{document}
