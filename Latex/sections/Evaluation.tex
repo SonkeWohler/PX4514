@@ -7,7 +7,7 @@
       
       \subsection{Data Aquision}
         
-        Data was taken from Poland's Men's World Championship \cite{dataGames} by noting down relevant data in excel, based on the defined model. This was done early on in development, as mentioned previously. Specifically the data included the game's score, the coordinates the setter came in contact with the ball, the position the setter decided to set to, the success of the attack and mistakes that were made, among others.
+        Data was taken from the FIVB Men's World Championship \cite{dataGames}, while focusing on Poland's team, by noting down relevant data in excel, based on the defined model. This was done early on in development, as mentioned previously. Specifically the data included the game's score, the coordinates the setter came in contact with the ball, the position the setter decided to set to, the success of the attack and mistakes that were made, among others.
         \\\\
         While this was done early in the development, it quickly became clear that a number of parameters, like mistakes in passing and sets from very difficult positions, were beyond the scope of the model. These phenomena involve a fair degree of rather unpredictable factors and would uunnecessarily complicate the model.
         \\\\
@@ -15,7 +15,7 @@
         
       \subsection{Analysis}
         
-        The single most powerful description of the model's accuracy, quite obviously, is its ability to find the best position to set to. This should eb the position that is scored highest by the model, and ideally also the position the real world setter decides to set to.\\
+        The single most powerful description of the model's accuracy, quite obviously, is its ability to find the best position to set to. This should be the position that is scored highest by the model, and ideally also the position the real world setter decides to set to.\\
         As there is real world data on what the setter would have considered the second best choice at the time, this is largely the only parameter available to asses the accuracy of the model.
         \\\\
         For each prediction the model records whether the real setter's choice was scored highest (i.e. 1), second highest (i.e. 2) etc. This was dubbed the choice-rank-score. \\
@@ -37,7 +37,7 @@
           \end{subfigure}
           \caption{Model Performance on Training and Test Data Sets. \\
             Trendlines show that the model is representative of the choices made by a real setter. Null Hypotheses were rejected at the 5\% margin for the training and at the 1\% margin for the test set. \\
-            Note that regression was performed on the valid choices, taking into account that there are at least three invalid positions that cannot be chosen.
+            Note that regression was performed on the valid choices, taking into account that there are at least two invalid positions that cannot be chosen at any time.
             }
           \label{fig:analysis}
         \end{figure}
