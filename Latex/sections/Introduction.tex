@@ -2,10 +2,13 @@
 \begin{document}
   \section{Introduction}
     \subsection{Motivation}
-    In volleyball the entire game is controlled by the setter, a specific player position which acts like a conductor for the team. Deciding who will attack, when and in which tempo. Each setter is different and unique in their own way and has his own decision process. The decision the setter makes take into account many factors ranging from ease of set to distance from other players to even the structure of the opposing team defences. If one could model and simulate specifics setter's decisions with a certain degree of precision then that would open up quite a number of possibilities. The teams can use such a model for improving their own playstyle and make it more efficient or identify their own weaknesses. It can also be used to model the opposition team in order to study it and identify key strengths and weaknesses. There is also a game market that can utilise the model to improve AI play as currently there is not a good quality model for that out there.
-
-
+    
+      In volleyball a team's strategy is defined by the setter. This player decides by the way they set the ball which player gets to attack. When making decisions the setter must take numerous factors into account like the difficulty to perform the set, the possibility of that attack to penetrate the opposing team's defence and many more \cite{rotation,idealSetter}.
 
     \subsection{Aims}
-      The model will take into account a real player and using real data of past choices and behaviour patterns of that player simulate his decisions dynamically. However, few factors will not be taken into account due to the additional complexity they bring and the time limit to create this model. The model will be based from a database where the setter’s decision where recorded with the relevant factors that can influence them such as quality and the position of the pass after service reception. The model will predict based on these factors which attacking position to set too. The position choices will be ranked from 1st choice to the 7th choice. This model will use Fabian Drzyzga who is the official setter for the Poland’s national team. The set data was gathered from the 2018 FIVB Men’s World championships. The model will require the position of the setter when he contacts the ball before set as well as his position in the rotation system and points in the set. The model does not take into account any factors relating the oppositions team like the distribution of the block. Only the sets made straight from server reception are counted and used, later in the rally sets are more heavily depended on other factors which are not included like success rate of each player under specific circumstances, situational positioning and history of previous sets in that rally.
+  
+      The aim of this paper is to present a model that accurately predicts the probability of the setter to decide to set to each player, based on their position. The model assigns scores to each position, with at least the two highest being considered extremely likely choices. 
+      \\\\
+      To improve viability the model is largely based on real world data taken form the 2018 FIVB World Championship and tuned to the setter of the Polish team, Fabian Drzyzga. Attempts to asses the fdifferences in decision making between different persons were not made thus far.
+      
 \end{document}
