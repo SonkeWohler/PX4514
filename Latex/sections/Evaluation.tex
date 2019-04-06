@@ -20,7 +20,27 @@
         \\\\
         For each prediction the model records whether the real setter's choice was scored highest (1), second highest (2) etc. This was dubbed the choice-rank.  
         \\\\
-        
+        discuss training and test graphs. These suggest that, similar to the central limit theorem, larger datasets move the curve closer a curve similar to the above one, and hence that the model holds.
+        \\\\
+        More precisely, the model accurately scores positions by the likelihood of the setter to decide to set to them.
+        \\\\
+        \begin{figure}[h!]
+          \begin{subfigure}{0.5\linewidth}
+            \centering
+            \includegraphics[width=0.9\linewidth]{figures/trainingGraph}
+            \caption{text}
+            \label{fig:training}
+          \end{subfigure}
+          \begin{subfigure}{0.5\linewidth}
+            \centering
+            \includegraphics[width=0.9\linewidth]{figures/testGraph}
+            \caption{text}
+            \label{fig:test}
+          \end{subfigure}
+          \caption{text}
+          \label{fig:analysis}
+        \end{figure}
+      
         
       All data used for the model was taken from the volleyball games in 2018 FIVB Men’s World Championships as they were available in high quality. Data acquisition consisted of watching the games where Poland played and recorded every decision the setter Fabian Drzyzga made from service reception. His position was recorded whenever he contacted the ball by pausing the game then estimating his coordinates.  For that reason, it was decided to split the court into a grid made out of squared meters as this reflects to which degree of accuracy the setter’s position during contact with the ball could be estimated to. The success rate of each set was also noted by determining if that set resulted with the point scored by the attacker. It is assumed that at this level all sets are good and there is no error in setting the ball. For the same reason the only sets that where counted where if the setter had enough time to get under the ball and use a volley to set rather then a dig. At international level if the setter can get behind the ball and use a volley all attacking option are possible however when using a dig there is a lot less control and precision therefore setter’s choices become drastically limited and very situational. For that reason, these sets where not counted. The points of both teams were also recorded during the set in order to correspond to the pressure factor. This point pressure encourages the setter to play more stable options and therefore the likelihood of more difficult plays in those moments decreases. The last thing that was noted was the position of the setter in the rotation. During service reception players “stack” in order to be in the most optimum receiving position while still following the rotation rules. This means the setter will start in different places meaning he might have to run further or closer to the pass.
     \subsection{Results}
