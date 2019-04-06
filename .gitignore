@@ -4,7 +4,6 @@
 *.aux
 *.bbl
 *.blg
-PX4514.pdf
 *synctex.gz
 
 ## Log and crash files
