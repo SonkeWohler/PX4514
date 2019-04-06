@@ -1,14 +1,17 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
   \section{The Model}
-    \subsection{Design and Development}
-      \lipsum[4]
-    \subsection{Mathematical Representation}
-      \lipsum[5]
-    \subsection{Implementation in Mathematica}
-      \lipsum[6]
-    \subsection{temporary section}
     
+    The model was implemented in Mathematica 11.3 \cite{wolfram}, and can be viewed at: \url{https://github.com/SonkeWohler/PX4514}.
+    
+    \subsection{Fundamental Model Structure}
+      
+      The playing field within the model is represented as a coordinate system as shown in \Cref{fig:field}. Over these coordinates each position has a number of properties detailed in \Cref{tab:positions}. These positions are used to refer to the players independent of their coordinates. \\
+      Position 0 refers to the setter independent of their position within the rotation. For example, \(x_{0,current}\) refers to the x coordinate of the current setter position.
+      \\\\
+      
+      
+      
       \begin{SCfigure}
         \centering
         \includegraphics[width=0.5\linewidth]{figures/playingFieldGridLabelled}
@@ -17,6 +20,13 @@
           It is also used when noting down real world data to a format that the model can interpret.}
         \label{fig:field}
       \end{SCfigure}
+      
+    \subsection{Scoring Positions}
+      
+    \subsection{Limitations}
+
+    
+
       
       \begin{table}[h!]
         \label{tab:positions}
