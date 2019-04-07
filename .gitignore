@@ -5,7 +5,7 @@
 *.bbl
 *.blg
 *synctex.gz
-px4514.pdf
+*px4514.pdf
 
 ## Log and crash files
 *.log

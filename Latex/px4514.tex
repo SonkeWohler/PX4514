@@ -1,13 +1,14 @@
 \documentclass[11pt]{article}
 
 \usepackage[top=2.0cm]{geometry}
+\geometry{letterpaper}
 \usepackage[sort&compress]{natbib}
 \usepackage{url}
 \usepackage{graphics}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{gensymb}
-\usepackage[format=hang,font=scriptsize]{caption}
+\usepackage[font=scriptsize]{caption}
 \usepackage{subcaption}
 \usepackage{placeins}
 \usepackage{needspace}
@@ -17,9 +18,11 @@
 \usepackage{subfloat}
 \usepackage{framed}
 \usepackage{lipsum}
-\usepackage{cleveref}
 \usepackage{subfiles}
 \usepackage[english]{isodate}
+\usepackage[parfill]{parskip}
+\usepackage{mathtools}
+\usepackage{cleveref}
 
 \bibliographystyle{plain}
 
@@ -38,8 +41,8 @@
   \abstract
     \begingroup
       \fontsize{8pt}{10pt}\selectfont
-    
-        \lipsum[1]
+        
+        The setter player can be considered the core to volleyball strategy, and hence the most interesting aspect in modelling volleyball play. Here we present a model based on 2018 World Championship data that shows clear promise to somewhat accurately predict setter choices. The model is based around the place of contact between setter and ball, and takes the current game score into account.
     
     \endgroup
     \hrulefill
@@ -49,9 +52,8 @@
       \subfile{sections/Evaluation}
       \subfile{sections/Conclusion}
     
-    \clearpage
-    \section*{Acknowledgements}
-    \nocite{*} % remove before final submission
+%    \clearpage
+    \scriptsize
     \bibliography{px4514-refs}
   
 
